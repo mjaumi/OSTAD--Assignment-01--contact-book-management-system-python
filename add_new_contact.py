@@ -1,7 +1,7 @@
-from save_new_contact import save_new_contact
+from save_contact_book import save_contact_book
 
 # function to add new contact into the CSV file declared here
-def add_new_contact():
+def add_new_contact(contact_book_list):
     print('\n----------------------------------------')
     print('ADD NEW CONTACT')
     print('----------------------------------------\n')
@@ -12,8 +12,18 @@ def add_new_contact():
     email =  input("Enter The Contact's Email: ")
     address =  input("Enter The Contact's Address: ")
 
-    contact = [name, phone_no, email, address]
+    contact = {
+        'name': name,
+        'phone': phone_no,
+        'email': email,
+        'address': address
+    }
+
+    contact_book_list.append(contact)
 
     # Calling function to save the new contact into CSV file here
-    save_new_contact(contact)
+    response = save_contact_book(contact_book_list)
+
+    if response == 1:
+        print('\nNew Contact Added Successfully!!\n')
 
