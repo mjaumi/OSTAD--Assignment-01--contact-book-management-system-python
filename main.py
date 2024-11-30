@@ -1,3 +1,5 @@
+from add_new_contact import add_new_contact
+
 contact_book = []
 
 while True:
@@ -19,7 +21,7 @@ while True:
         break
 
     elif choice == '1':
-        pass
+        add_new_contact()
 
     else:
         print('Please, Select A Valid Option!!\n')
