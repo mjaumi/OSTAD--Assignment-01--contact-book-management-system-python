@@ -1,8 +1,9 @@
 from add_new_contact import add_new_contact
 from read_contact_book import read_contact_book
+from search_contact import search_contact
 from utils import show_contact
 
-contact_book = []
+contact_book_list = []
 
 while True:
     print('Welcome To Contact Book Management System!!\n')
@@ -27,17 +28,20 @@ while True:
 
     elif choice == '2':
         print('\n---------------------------')
-        print('VIEW ALL BOOKS')
+        print('VIEW ALL CONTACTS')
         print('---------------------------\n')
 
         # reading the contact book CSV file here
-        contact_book = read_contact_book()
+        contact_book_list = read_contact_book()
 
-        if len(contact_book):
-            for index, contact in enumerate(contact_book, 1):
+        if len(contact_book_list):
+            for index, contact in enumerate(contact_book_list, 1):
                 show_contact(index, contact)
         else:
             print('No Contacts Found!!\n')
+
+    elif choice == '3':
+        search_contact()
 
     else:
         print('\nPlease, Select A Valid Option!!\n')
