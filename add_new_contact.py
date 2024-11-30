@@ -12,6 +12,11 @@ def add_new_contact(contact_book_list):
     email =  input("Enter The Contact's Email: ")
     address =  input("Enter The Contact's Address: ")
 
+    for contact in contact_book_list:
+        if contact['phone'] == phone_no:
+            print('\nA Contact With The Similar Phone Number Already Exists!!\n')
+            return
+
     contact = {
         'name': name,
         'phone': phone_no,
