@@ -17,6 +17,29 @@ def add_new_contact(contact_book_list):
             print('\nA Contact With The Similar Phone Number Already Exists!!\n')
             return
 
+    # providing name input validation here
+    if not name.isalpha():
+        print("\nContact's Name Must Be A String!!\n")
+
+    # providing phone number input validation here
+    if not phone_no.isdigit():
+        print("\nContact's Phone Number Must Be An Integer!!\n")
+
+    # providing email input validation here
+    if not '@' in email.lower() or not email.lower()[-4:] in '.com.org.edu.gov.net':
+        print('\nInvalid Email!!\n')
+
+    if not len(address):
+        print('\nAddress Is Required!!\n')
+
+    # returning from the function if any of the validation failed here
+    if (not name.isalpha() or
+            not phone_no.isdigit() or
+            not '@' in email.lower() or
+            not email.lower()[-4:] in '.com.org.edu.gov.net' or
+            not len(address)):
+        return
+
     contact = {
         'name': name,
         'phone': phone_no,
