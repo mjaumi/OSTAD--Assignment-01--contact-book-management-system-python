@@ -18,7 +18,7 @@ def add_new_contact(contact_book_list):
             return
 
     # providing name input validation here
-    if not name.isalpha():
+    if not name.replace(' ', '').isalpha():
         print("\nContact's Name Must Be A String!!\n")
 
     # providing phone number input validation here
@@ -33,7 +33,7 @@ def add_new_contact(contact_book_list):
         print('\nAddress Is Required!!\n')
 
     # returning from the function if any of the validation failed here
-    if (not name.isalpha() or
+    if (not name.replace(' ', '').isalpha() or
             not phone_no.isdigit() or
             not '@' in email.lower() or
             not email.lower()[-4:] in '.com.org.edu.gov.net' or
